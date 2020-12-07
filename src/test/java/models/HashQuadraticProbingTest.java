@@ -1,8 +1,7 @@
 package models;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import exceptions.KeyDoesNotExistException;
+import junit.framework.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,25 +25,25 @@ class HashQuadraticProbingTest {
 	}
 
 	@Test
-	void test() {
+	void putTest() {
 		int i = 0;
 		for (char r : R) {
-			map.put(r, i++);
+			map.put(r, i);
+			Assert.assertEquals(map.get(r), i);
+			i++;
 		}
 		System.out.println(Arrays.toString(map.keys()));
 		System.out.println(Arrays.toString(map.values()));
 	}
 
 	@Test
-	void getTest() throws KeyDoesNotExistException {
+	void getTest() {
 		init();
+		for (char r : R) {
+			Assert.assertTrue(map.get(r) != -1);
+		}
 		System.out.println(Arrays.toString(map.keys()));
 		System.out.println(Arrays.toString(map.values()));
-		map.remove('N');
-		System.out.println(Arrays.toString(map.keys()));
-		System.out.println(Arrays.toString(map.values()));
-		int x = map.get('O');
-		System.out.println(x);
 	}
 
 	@Test
@@ -52,14 +51,12 @@ class HashQuadraticProbingTest {
 		init();
 		System.out.println(Arrays.toString(map.keys()));
 		System.out.println(Arrays.toString(map.values()));
-		map.remove('L');
-		map.remove('K');
+		for (char r : R) {
+			map.remove(r);
+		}
 		System.out.println(Arrays.toString(map.keys()));
 		System.out.println(Arrays.toString(map.values()));
-		map.put('L', 7);
-		System.out.println(Arrays.toString(map.keys()));
-		System.out.println(Arrays.toString(map.values()));
-
+		map.get('E');
 	}
 
 }

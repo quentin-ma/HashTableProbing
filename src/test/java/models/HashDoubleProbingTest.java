@@ -1,12 +1,11 @@
 package models;
 
 import exceptions.KeyDoesNotExistException;
+import junit.framework.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class HashDoubleProbingTest {
 
@@ -24,31 +23,34 @@ class HashDoubleProbingTest {
         for (char r : R) {
             map.put(r,  i++);
         }
+        System.out.println(Arrays.toString(map.keys()));
+        System.out.println(Arrays.toString(map.values()));
     }
 
     @Test
-    void test() {
+    void putTest() {
         int i = 0;
         for (char r : R) {
-            map.put(r, i++);
+            map.put(r, i);
+            i++;
         }
-        System.out.println(Arrays.toString(map.keys()));
-        System.out.println(Arrays.toString(map.values()));
     }
 
     @Test
     void getTest() {
         init();
-
+        int i = 0;
+        for (char r : R) {
+            Assert.assertEquals(map.get(r), i++);
+        }
     }
 
     @Test
     void removeTest() throws KeyDoesNotExistException {
         init();
-        System.out.println(Arrays.toString(map.keys()));
-        System.out.println(Arrays.toString(map.values()));
-        map.remove('O');
-        System.out.println(Arrays.toString(map.keys()));
-        System.out.println(Arrays.toString(map.values()));
+        for (char r : R) {
+            map.remove(r);
+            Assert.assertEquals(map.get(r), -1);
+        }
     }
 }

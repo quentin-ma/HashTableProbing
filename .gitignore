@@ -1,2 +1,7 @@
 # Project exclude paths
 /bin/
+.classpath
+.idea
+.settings
+.project
+QuentinMa-TP6-V1.iml

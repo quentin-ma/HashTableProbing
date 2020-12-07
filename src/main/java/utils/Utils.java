@@ -2,6 +2,21 @@ package utils;
 
 import models.Constant;
 
+/**
+ * TP n°: TP6 V1
+ *
+ * Titre du TP : Hash Probing II
+ *
+ * Date : 07/12/2020
+ *
+ * Nom  : MA
+ * Prenom : Quentin
+ *
+ * email : quentin.ma@etu-u.paris.fr
+ *
+ * Remarques : This class implement all the methods and functions that
+ * are necessary for our models
+ */
 public class Utils {
 
     private static boolean isPrime(int n) {

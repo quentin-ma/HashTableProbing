@@ -26,21 +26,14 @@ class HashLinearProbingTest {
     	}
     }
     
-    @Test
-    void hashTest() {
-    	for (char r : R) {
-    		System.out.println("idx = " +map.hash(r));
-    	}
-    }
-    
 	@Test
 	void putTest() {
-		HashLinearProbing map = new HashLinearProbing(Constant.M);
 		int i = 0;
 		for (char r : R) {
-			map.put(r, i++);
+			map.put(r, i);
+			Assert.assertEquals(map.get(r), i);
+			i++;
 		}
-		System.out.println(map.keys());
 	}
 	
 	@Test
@@ -54,13 +47,13 @@ class HashLinearProbingTest {
 	@Test
 	void removeTest() throws KeyDoesNotExistException {
 		init();
-		System.out.println(map.keys());
+		System.out.println(Arrays.toString(map.keys()));
 		System.out.println(Arrays.toString(map.values()));
 		for (char r : R) {
 			map.remove(r);
-			Assert.assertTrue(map.get(r) == -1);
+			Assert.assertEquals(map.get(r), -1);
 		}
-		System.out.println(map.keys());
+		System.out.println(Arrays.toString(map.keys()));
 		System.out.println(Arrays.toString(map.values()));
 	}
 }

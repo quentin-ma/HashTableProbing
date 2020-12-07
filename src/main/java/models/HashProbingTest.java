@@ -1,13 +1,27 @@
 package models;
 
+/**
+ * TP n°: TP6 V1
+ *
+ * Titre du TP : Hash Probing II
+ *
+ * Date : 07/12/2020
+ *
+ * Nom  : MA
+ * Prenom : Quentin
+ *
+ * email : quentin.ma@etu-u.paris.fr
+ *
+ * Remarques : Interface which provide technical methods
+ */
 public interface HashProbingTest {
 	
-	public char[] keys();
+	char[] keys();
 	
-	public int[] values();
+	int[] values();
 	
-	public double load();
+	double load();
 	
-	public int hash(char key);
+	int hash(char key);
 
 }
